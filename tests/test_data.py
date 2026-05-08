@@ -98,7 +98,7 @@ class TestFindEra:
         assert era.id == "agent_era"
 
     def test_future_unknown(self):
-        era = find_era(datetime.date(2026, 5, 8))
+        era = find_era(datetime.date(2027, 5, 8))
         assert era is not None
         assert era.id == "future_unknown"
 
