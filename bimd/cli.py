@@ -14,13 +14,14 @@ from rich.panel import Panel
 from rich.table import Table
 from rich.text import Text
 
-from bimd.data import Era, find_era, load_eras
+from bimd.data import Era, ModelInfo, find_era, load_eras
 from bimd.git_utils import get_commit_date, get_first_commit_date, get_repo
 from bimd.humor import get_boomer_comment
+from bimd.i18n import get_lang, set_lang, t
 
 app = typer.Typer(
     name="bimd",
-    help="BackInMyDay — Archéologie logicielle de l'ère IA 👴",
+    help="BackInMyDay — AI-era software archaeology 👴",
     add_completion=False,
 )
 console = Console()
@@ -44,28 +45,34 @@ def _render_era(era: Era, commit_date: datetime.date | None = None) -> None:
     # Date info
     if commit_date:
         console.print(
-            f"  📅  Date analysée : [bold yellow]{commit_date.isoformat()}[/]"
+            f"{t('date_analysed')}[bold yellow]{commit_date.isoformat()}[/]"
         )
     console.print(
-        f"  🏷️   Ère détectée  : [bold magenta]{era.name}[/] ({era.id})\n"
+        f"{t('era_detected')}[bold magenta]{era.name}[/] ({era.id})\n"
     )
 
     # Models table
     table = Table(
-        title="🤖 Modèles disponibles à l'époque",
+        title=t("models_table_title"),
         show_header=True,
         header_style="bold green",
     )
-    table.add_column("Modèle", style="cyan")
-    for model in era.top_models:
-        table.add_row(model)
+    table.add_column(t("model_col"), style="cyan")
+    table.add_column(t("released_col"), style="yellow")
+    table.add_column(t("org_col"), style="white")
+    for mi in era.models:
+        table.add_row(
+            mi.name,
+            mi.released or "—",
+            mi.org or "—",
+        )
     console.print(table)
 
     console.print(
-        f"\n  📏  Fenêtre de contexte : [bold]{era.context_window}[/]"
+        f"\n{t('context_window')}[bold]{era.context_window}[/]"
     )
     console.print(
-        f"  📆  Période : {era.start_date.isoformat()} → {era.end_date.isoformat()}\n"
+        f"{t('period')}{era.start_date.isoformat()} → {era.end_date.isoformat()}\n"
     )
 
     # Boomer panel
@@ -73,7 +80,7 @@ def _render_era(era: Era, commit_date: datetime.date | None = None) -> None:
     console.print(
         Panel(
             Text(f"👴 {quip}", style="italic"),
-            title="[bold red]Le Boomer du Prompt râle[/]",
+            title=t("boomer_panel_title"),
             border_style="red",
             expand=False,
         )
@@ -85,32 +92,42 @@ def _render_era(era: Era, commit_date: datetime.date | None = None) -> None:
 _DATE_RE = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 
+@app.callback()
+def main(
+    lang: Optional[str] = typer.Option(
+        None,
+        "--lang",
+        "-l",
+        help="Language: en or fr. Auto-detected from locale by default.",
+    ),
+) -> None:
+    """BackInMyDay — AI-era software archaeology 👴"""
+    if lang:
+        set_lang(lang)
+
+
 @app.command()
 def scan(
     path: str = typer.Argument(
-        ".", help="Chemin vers le dépôt Git à analyser."
+        ".", help="Path to the Git repository / Chemin vers le dépôt Git."
     ),
 ) -> None:
-    """Scanne un dépôt Git et affiche l'ère IA correspondant à son premier commit."""
+    """Scan a Git repo and show the AI era of its first commit."""
     try:
         repo = get_repo(path)
     except Exception:
-        console.print(
-            "[bold red]Erreur :[/] le chemin spécifié n'est pas un dépôt Git valide.",
-        )
+        console.print(t("err_not_git"))
         raise typer.Exit(code=1)
 
     try:
         commit_date = get_first_commit_date(repo)
     except ValueError as exc:
-        console.print(f"[bold red]Erreur :[/] {exc}")
+        console.print(f"{t('err_prefix')}{exc}")
         raise typer.Exit(code=1)
 
     era = find_era(commit_date)
     if era is None:
-        console.print(
-            f"[yellow]Aucune ère trouvée pour la date {commit_date.isoformat()}.[/]"
-        )
+        console.print(t("no_era_for_date", date=commit_date.isoformat()))
         raise typer.Exit(code=1)
 
     _render_era(era, commit_date)
@@ -120,16 +137,16 @@ def scan(
 def era(
     ref: str = typer.Argument(
         ...,
-        help="Date (YYYY-MM-DD) ou hash de commit à analyser.",
+        help="Date (YYYY-MM-DD) or commit hash / Date ou hash de commit.",
     ),
     path: str = typer.Option(
         ".",
         "--path",
         "-p",
-        help="Chemin du dépôt Git (nécessaire pour un hash de commit).",
+        help="Path to the Git repo (for commit hashes) / Chemin du dépôt Git.",
     ),
 ) -> None:
-    """Affiche l'ère IA correspondant à une date ou un commit donné."""
+    """Show the AI era for a given date or commit."""
     target_date: datetime.date | None = None
 
     if _DATE_RE.match(ref):
@@ -140,16 +157,12 @@ def era(
             repo = get_repo(path)
             target_date = get_commit_date(repo, ref)
         except Exception:
-            console.print(
-                f"[bold red]Erreur :[/] impossible de résoudre le commit '{ref}'.",
-            )
+            console.print(t("err_resolve_commit", ref=ref))
             raise typer.Exit(code=1)
 
     matched = find_era(target_date)
     if matched is None:
-        console.print(
-            f"[yellow]Aucune ère trouvée pour la date {target_date.isoformat()}.[/]"
-        )
+        console.print(t("no_era_for_date", date=target_date.isoformat()))
         raise typer.Exit(code=1)
 
     _render_era(matched, target_date)
@@ -158,22 +171,20 @@ def era(
 @app.command()
 def badge(
     path: str = typer.Argument(
-        ".", help="Chemin vers le dépôt Git."
+        ".", help="Path to the Git repository / Chemin vers le dépôt Git."
     ),
 ) -> None:
-    """Génère le Markdown pour un badge Shields.io de l'ère du projet."""
+    """Generate a Shields.io badge Markdown for the project era."""
     try:
         repo = get_repo(path)
         commit_date = get_first_commit_date(repo)
     except Exception:
-        console.print(
-            "[bold red]Erreur :[/] impossible d'analyser le dépôt Git."
-        )
+        console.print(t("err_analyse_repo"))
         raise typer.Exit(code=1)
 
     matched = find_era(commit_date)
     if matched is None:
-        console.print("[yellow]Aucune ère trouvée.[/]")
+        console.print(t("no_era_found"))
         raise typer.Exit(code=1)
 
     label = urllib.parse.quote(matched.badge_label)
@@ -184,14 +195,12 @@ def badge(
     console.print(
         Panel(
             f"[bold]{markdown}[/]",
-            title="[bold green]Badge Markdown[/]",
+            title=t("badge_panel_title"),
             border_style="green",
             expand=False,
         )
     )
-    console.print(
-        "\n  Copiez la ligne ci-dessus dans votre README.md 🚀\n"
-    )
+    console.print(t("badge_copy_msg"))
 
 
 if __name__ == "__main__":

@@ -1,0 +1,12 @@
+# Jekyll config — minimal, just to enable GitHub Pages with our custom HTML
+title: BackInMyDay
+description: Archéologie logicielle de l'ère IA 👴
+url: https://fran-cois.github.io
+baseurl: /BIMD
+
+# We ship pure HTML, so disable Jekyll's theme/layout magic
+theme: null
+plugins: []
+exclude:
+  - demo.yaml
+  - README.md

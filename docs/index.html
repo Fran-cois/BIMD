@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BackInMyDay · Archéologie logicielle de l'ère IA 👴</title>
+  <meta name="description" content="bimd — un outil CLI qui analyse votre dépôt Git pour révéler l'état du paysage LLM au moment où votre code a été écrit. Avec un commentaire de vieux dev grincheux." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+<body>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="crt" aria-hidden="true"></div>
+
+  <header class="hero">
+    <div class="container">
+      <pre class="ascii" aria-label="BackInMyDay banner">
+ ____             _    ___       __  __       ____
+| __ )  __ _  ___| | _|_ _|_ __ |  \/  |_   _|  _ \  __ _ _   _
+|  _ \ / _` |/ __| |/ /| || '_ \| |\/| | | | | | | |/ _` | | | |
+| |_) | (_| | (__|   < | || | | | |  | | |_| | |_| | (_| | |_| |
+|____/ \__,_|\___|_|\_\___|_| |_|_|  |_|\__, |____/ \__,_|\__, |
+                                         |___/             |___/
+      </pre>
+      <h1 class="tagline">
+        <span class="prompt">$</span> Archéologie logicielle de l'<span class="accent">ère IA</span> 👴
+      </h1>
+      <p class="lede">
+        <code>bimd</code> analyse votre dépôt Git, identifie l'<strong>ère LLM</strong>
+        de votre premier commit, et fait râler un vieux dev de l'IA pour vous
+        rappeler à quel point la vie était dure « back in my day ».
+      </p>
+      <div class="badges">
+        <a href="https://pypi.org/project/backinmyday/"><img src="https://img.shields.io/pypi/v/backinmyday?color=8be9fd&style=for-the-badge" alt="PyPI" /></a>
+        <a href="https://github.com/Fran-cois/BIMD"><img src="https://img.shields.io/github/stars/Fran-cois/BIMD?style=for-the-badge&color=f1fa8c" alt="GitHub stars" /></a>
+        <img src="https://img.shields.io/badge/Era-Time%20Traveler-black?style=for-the-badge" alt="Era badge" />
+      </div>
+      <div class="cta">
+        <a href="#install" class="btn primary">▶ Installer</a>
+        <a href="#demo" class="btn">🎬 Voir la démo</a>
+        <a href="https://github.com/Fran-cois/BIMD" class="btn">★ GitHub</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ══════════════ INSTALL ══════════════ -->
+    <section id="install" class="section">
+      <div class="container">
+        <h2>📦 Installation</h2>
+        <div class="terminal" data-title="zsh">
+          <pre><span class="muted"># Installation depuis PyPI</span>
+<span class="prompt">$</span> <span class="cmd">pip install backinmyday</span>
+
+<span class="muted"># Vérification</span>
+<span class="prompt">$</span> <span class="cmd">bimd --help</span></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ DEMO VIDEO ══════════════ -->
+    <section id="demo" class="section dark">
+      <div class="container">
+        <h2>🎬 Démo en vidéo</h2>
+        <p class="lede">
+          Vidéo générée automatiquement par
+          <a href="https://pypi.org/project/demodsl/" class="link">demodsl</a> —
+          un DSL pour automatiser des démos produit à partir d'un YAML.
+        </p>
+        <div class="video-frame">
+          <video controls preload="metadata">
+            <source src="assets/demo.mp4" type="video/mp4" />
+            Votre navigateur ne supporte pas la balise vidéo.
+            <a href="assets/demo.mp4">Télécharger la vidéo</a>.
+          </video>
+        </div>
+        <p class="caption">
+          ▸ Pour la regénérer : <code>demodsl run docs/demo.yaml</code>
+        </p>
+      </div>
+    </section>
+
+    <!-- ══════════════ COMMANDS ══════════════ -->
+    <section id="commands" class="section">
+      <div class="container">
+        <h2>⚙️ Les 3 commandes</h2>
+
+        <article class="card">
+          <h3><code>bimd scan [PATH]</code></h3>
+          <p>Analyse le dépôt Git, trouve la date du <em>premier commit</em>,
+          et affiche l'ère IA correspondante avec un commentaire sarcastique.</p>
+          <div class="terminal" data-title="bimd scan">
+<pre><span class="prompt">$</span> <span class="cmd">bimd scan .</span>
+  📅  Date analysée : <span class="warn">2023-04-12</span>
+  🏷️   Ère détectée  : <span class="accent">La Révolution GPT-4</span>
+  🤖  Modèles        : GPT-4, Claude 1, Llama 1, PaLM 2
+  📏  Contexte       : <span class="ok">8k - 32k tokens</span>
+
+  👴  <span class="quip">« On passait nos journées à écrire des prompts de 4 pages
+        pour forcer le modèle à cracher du JSON valide. »</span></pre>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3><code>bimd era &lt;DATE | COMMIT&gt;</code></h3>
+          <p>Recherche ponctuelle pour une date arbitraire ou un hash de commit.</p>
+          <div class="terminal" data-title="bimd era">
+<pre><span class="prompt">$</span> <span class="cmd">bimd era 2020-07-01</span>
+  🏷️   Ère détectée  : <span class="accent">L'Aube du Prompt</span>
+  🤖  Modèles        : GPT-3 (davinci), Codex, PaLM, DALL-E
+  📏  Contexte       : 2048 - 4096 tokens
+
+<span class="prompt">$</span> <span class="cmd">bimd era a1b2c3d --path .</span></pre>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3><code>bimd badge</code></h3>
+          <p>Génère un badge Markdown <a href="https://shields.io" class="link">Shields.io</a>
+          à coller dans votre README.</p>
+          <div class="terminal" data-title="bimd badge">
+<pre><span class="prompt">$</span> <span class="cmd">bimd badge .</span>
+  ![BackInMyDay Era](https://img.shields.io/badge/Era-GPT--4%20Early%20Adopter-blue)</pre>
+          </div>
+          <p style="margin-top:.8rem">Rendu :
+            <img src="https://img.shields.io/badge/Era-GPT--4%20Early%20Adopter-blue" alt="GPT-4 Early Adopter" />
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- ══════════════ ERAS TIMELINE ══════════════ -->
+    <section id="eras" class="section dark">
+      <div class="container">
+        <h2>🕰️ La frise des ères IA</h2>
+        <p class="lede">11 ères couvertes, de la pré-histoire des Transformers à l'âge des agents.</p>
+
+        <ol class="timeline">
+          <li><span class="year">~2017</span><strong>L'Ère Silencieuse</strong><em>RegEx, TF-IDF, LSTM</em></li>
+          <li><span class="year">2017</span><strong>Big Bang Transformer</strong><em>« Attention Is All You Need »</em></li>
+          <li><span class="year">2018</span><strong>L'Âge de BERT</strong><em>BERT, GPT-2, fine-tuning manuel</em></li>
+          <li><span class="year">2020</span><strong>L'Aube du Prompt</strong><em>GPT-3, davinci, prompts à $$$</em></li>
+          <li><span class="year">2022</span><strong>Le Boom ChatGPT</strong><em>4k tokens, chunking, wrappers</em></li>
+          <li><span class="year">2023</span><strong>Révolution GPT-4</strong><em>JSON wars, LangChain hell</em></li>
+          <li><span class="year">2023</span><strong>Vague Open Source</strong><em>Mixtral, Llama 2, 128k</em></li>
+          <li><span class="year">2024</span><strong>Multimodal</strong><em>Claude 3, GPT-4o, 1M tokens</em></li>
+          <li><span class="year">2024</span><strong>Âge du Raisonnement</strong><em>o1, DeepSeek, CoT</em></li>
+          <li><span class="year">2025</span><strong>Ère Agentique</strong><em>MCP, Claude 4, vibe-coding</em></li>
+          <li><span class="year">2026+</span><strong>Terra Incognita</strong><em>???</em></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ══════════════ CONTRIBUTE ══════════════ -->
+    <section id="contribute" class="section">
+      <div class="container">
+        <h2>🤝 Contribuer</h2>
+        <p>La base de données vit dans
+          <a class="link" href="https://github.com/Fran-cois/BIMD/blob/main/bimd/eras.yaml"><code>bimd/eras.yaml</code></a>.
+          Ouvrez une PR pour ajouter une ère, un modèle ou — surtout — un nouveau commentaire de vieux con.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        Made with <span class="accent">☕</span> &amp; <span class="accent">😤</span> ·
+        <a class="link" href="https://github.com/Fran-cois/BIMD">github.com/Fran-cois/BIMD</a> ·
+        Vidéo par <a class="link" href="https://pypi.org/project/demodsl/">demodsl</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

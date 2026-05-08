@@ -1,0 +1,21 @@
+.venv
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+build/
+dist/
+
+# demodsl artifacts
+.demodsl/
+output/
+monitor_reports/
+
+# Epoch AI data cache
+.data/
+
+# OS
+.DS_Store
+
