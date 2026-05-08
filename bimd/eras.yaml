@@ -1,0 +1,194 @@
+eras:
+  - id: pre_transformer
+    name: "L'Ère Silencieuse"
+    start_date: "1900-01-01"
+    end_date: "2017-06-11"
+    top_models:
+      - "Word2Vec"
+      - "GloVe"
+      - "LSTM (Basic)"
+      - "Seq2Seq"
+    context_window: "Quelques mots"
+    badge_label: "Pre-Attention Ancient"
+    badge_color: "lightgrey"
+    boomer_comments:
+      - "À mon époque, on faisait du NLP avec des expressions régulières et du TF-IDF. On ne demandait pas poliment à une machine de coder à notre place, on codait nos propres matrices de transition !"
+      - "Tu veux du 'text generation' ? Voilà une chaîne de Markov et un dictionnaire. Débrouille-toi."
+      - "On entraînait nos modèles pendant des semaines sur un seul GPU. Et on était CONTENTS."
+      - "Le 'deep learning' c'était empiler 3 couches LSTM et prier pour que ça converge avant la fin du mois."
+
+  - id: transformer_birth
+    name: "Le Big Bang Transformer"
+    start_date: "2017-06-12"
+    end_date: "2018-10-10"
+    top_models:
+      - "Transformer (Original)"
+      - "ELMo"
+    context_window: "512 tokens"
+    badge_label: "Transformer Pioneer"
+    badge_color: "yellow"
+    boomer_comments:
+      - "'Attention Is All You Need' qu'ils disaient. Nous, on avait besoin d'attention, de café, et d'un cluster de GPU qu'on n'avait pas."
+      - "512 tokens de contexte. Tu pouvais à peine y mettre un paragraphe. Et on trouvait ça RÉVOLUTIONNAIRE."
+      - "On lisait des papiers sur ArXiv en se demandant si c'était du génie ou du bullshit. Spoiler : c'était les deux."
+
+  - id: bert_era
+    name: "L'Âge de BERT"
+    start_date: "2018-10-11"
+    end_date: "2020-06-10"
+    top_models:
+      - "BERT"
+      - "GPT-2"
+      - "XLNet"
+      - "RoBERTa"
+    context_window: "512 - 1024 tokens"
+    badge_label: "BERT Veteran"
+    badge_color: "orange"
+    boomer_comments:
+      - "BERT ! Le modèle qui a convaincu les managers que l'IA savait lire. Spoiler : il savait juste deviner le mot manquant."
+      - "On fine-tunait BERT sur un laptop avec 8 Go de RAM. Les OOM kills étaient notre quotidien."
+      - "GPT-2 était 'trop dangereux pour être publié'. Aujourd'hui on le ferait tourner sur un grille-pain."
+      - "Le transfer learning c'était de la magie noire. On téléchargeait des poids pré-entraînés sans comprendre et on priait."
+
+  - id: gpt3_dawn
+    name: "L'Aube du Prompt"
+    start_date: "2020-06-11"
+    end_date: "2022-11-29"
+    top_models:
+      - "GPT-3 (davinci)"
+      - "Codex"
+      - "PaLM"
+      - "DALL-E"
+    context_window: "2048 - 4096 tokens"
+    badge_label: "GPT-3 Prompt Whisperer"
+    badge_color: "green"
+    boomer_comments:
+      - "On payait la moindre requête une fortune sur l'API d'OpenAI. Pas de chat, juste de la complétion pure. Tu loupais ton stop token, et le modèle se mettait à boucler à l'infini en ruinant ton compte en banque !"
+      - "Le 'prompt engineering' c'était écrire 'Translate the following text:' et espérer que ça marche. Pas de system prompt, pas de rôle, rien."
+      - "Tu voulais du JSON en sortie ? Tu ajoutais 'Please respond in JSON' et tu croisais les doigts. Parser l'output, c'était 80% du boulot."
+      - "Les embeddings coûtaient un bras. On calculait la similarité cosinus à la main comme des artisans."
+
+  - id: chatgpt_explosion
+    name: "Le Grand Boom ChatGPT"
+    start_date: "2022-11-30"
+    end_date: "2023-03-13"
+    top_models:
+      - "ChatGPT (GPT-3.5-turbo)"
+      - "Flan-T5"
+      - "LLaMA (Leaked)"
+    context_window: "4096 tokens"
+    badge_label: "ChatGPT Early Bird"
+    badge_color: "brightgreen"
+    boomer_comments:
+      - "Le jour où ChatGPT est sorti, la moitié de LinkedIn s'est reconvertie en 'AI Expert'. Du jour au lendemain."
+      - "4k tokens de contexte et on trouvait ça immense. On découpait nos documents en chunks de 500 tokens avec un overlap de 50. DE L'ARTISANAT."
+      - "Tout le monde faisait des wrappers autour de l'API OpenAI et appelait ça une 'startup'. 500 lignes de Python et une clé API, valorisation : 10 millions."
+      - "Les hallucinations ? On appelait ça des 'creative outputs' pour ne pas effrayer les investisseurs."
+
+  - id: gpt4_revolution
+    name: "La Révolution GPT-4"
+    start_date: "2023-03-14"
+    end_date: "2023-11-05"
+    top_models:
+      - "GPT-4 (Original)"
+      - "Claude 1"
+      - "Llama 1"
+      - "PaLM 2"
+    context_window: "8k - 32k tokens"
+    badge_label: "GPT-4 Early Adopter"
+    badge_color: "blue"
+    boomer_comments:
+      - "Ah, l'âge d'or des 'AI Engineers' de 3 semaines ! On passait nos journées à écrire des prompts de 4 pages pour forcer le modèle à cracher du JSON valide."
+      - "Les fenêtres de contexte étaient si petites qu'on passait plus de temps à optimiser nos embeddings qu'à écrire du vrai code."
+      - "LangChain avait une nouvelle version tous les 3 jours. Ton code cassait le mardi, tu migrais le mercredi, et ça recassait le jeudi."
+      - "On faisait du RAG avec Pinecone comme si c'était la solution à tous les problèmes de l'humanité."
+
+  - id: open_source_wave
+    name: "La Vague Open Source"
+    start_date: "2023-11-06"
+    end_date: "2024-03-03"
+    top_models:
+      - "GPT-4 Turbo"
+      - "Claude 2.1"
+      - "Mixtral 8x7B"
+      - "Llama 2"
+    context_window: "128k tokens"
+    badge_label: "Open Source Evangelist"
+    badge_color: "blueviolet"
+    boomer_comments:
+      - "128k tokens de contexte ! On se sentait riches. On balançait des docs entières dans le prompt comme des barbares."
+      - "Tout le monde fine-tunait des Llama sur des datasets pourris en se disant que c'était de la recherche."
+      - "On lançait des modèles 7B sur nos MacBooks et on appelait ça du 'local AI'. Ça prenait 30 secondes par token."
+      - "Le drama Mixtral : quand un modèle open source était meilleur que le produit commercial et que tout le monde faisait semblant d'être surpris."
+
+  - id: multimodal_era
+    name: "L'Ère Multimodale"
+    start_date: "2024-03-04"
+    end_date: "2024-09-11"
+    top_models:
+      - "Claude 3 (Opus/Sonnet/Haiku)"
+      - "GPT-4o"
+      - "Gemini 1.5 Pro"
+      - "Llama 3"
+    context_window: "200k - 1M tokens"
+    badge_label: "Multimodal Native"
+    badge_color: "ff69b4"
+    boomer_comments:
+      - "Les modèles savaient enfin lire des images ! On a tous testé en leur envoyant des photos de notre chat. Productivité : zéro."
+      - "1 million de tokens de contexte chez Gemini. On pouvait enfin envoyer tout le codebase. La question c'est : pourquoi ?"
+      - "On avait 3 tailles de Claude : Opus pour le boulot, Sonnet pour tous les jours, Haiku pour quand on n'avait plus de crédits."
+      - "Le 'vibe coding' est né ici. Balancer son code et dire 'corrige' était devenu un workflow légitime."
+
+  - id: reasoning_age
+    name: "L'Âge du Raisonnement"
+    start_date: "2024-09-12"
+    end_date: "2025-02-23"
+    top_models:
+      - "o1 / o1-mini"
+      - "Claude 3.5 Sonnet"
+      - "Gemini 2.0"
+      - "DeepSeek V3"
+      - "Llama 3.1 405B"
+    context_window: "128k - 200k tokens"
+    badge_label: "Chain-of-Thought Thinker"
+    badge_color: "critical"
+    boomer_comments:
+      - "Les modèles savaient 'réfléchir' maintenant. Enfin, ils faisaient semblant en écrivant leur raisonnement à voix haute. Comme mon collègue Bernard."
+      - "o1 prenait 45 secondes pour répondre mais la réponse était correcte. On appelait ça du progrès."
+      - "DeepSeek a fait trembler la Silicon Valley depuis la Chine. La géopolitique de l'IA, c'était mieux que Game of Thrones."
+      - "On pouvait enfin envoyer des maths complexes aux modèles sans qu'ils inventent des théorèmes imaginaires. Enfin, presque."
+
+  - id: agent_era
+    name: "L'Ère Agentique"
+    start_date: "2025-02-24"
+    end_date: "2025-12-31"
+    top_models:
+      - "Claude 3.7 Sonnet"
+      - "Claude 4 Opus/Sonnet"
+      - "GPT-4.5"
+      - "o3 / o4-mini"
+      - "Gemini 2.5 Pro"
+      - "Llama 4 (Scout/Maverick)"
+    context_window: "200k - 1M+ tokens"
+    badge_label: "Agent Orchestrator"
+    badge_color: "9cf"
+    boomer_comments:
+      - "Les agents ! On laisse les IA se parler entre elles pendant qu'on regarde. C'est du management, pas du développement."
+      - "Le contexte est si grand qu'on ne sait plus quoi mettre dedans. On a résolu le problème de la taille en créant le problème du bruit."
+      - "MCP, function calling, tool use... On a réinventé les microservices mais avec des hallucinations en bonus."
+      - "Claude code, Copilot code, Cursor code... bientôt les développeurs ne coderont plus. Ah wait."
+      - "Vibe coding 2.0 : maintenant c'est l'agent qui vibe-code pour toi pendant que tu sirotes ton café."
+
+  - id: future_unknown
+    name: "Terra Incognita"
+    start_date: "2026-01-01"
+    end_date: "2099-12-31"
+    top_models:
+      - "???"
+    context_window: "∞ ?"
+    badge_label: "Time Traveler"
+    badge_color: "black"
+    boomer_comments:
+      - "Tu viens du futur ? Est-ce que les modèles ont enfin arrêté d'halluciner ? Non ? Je m'en doutais."
+      - "Si tu lis ça, c'est que l'IA n'a pas encore remplacé les développeurs. Ou alors elle utilise bimd pour comprendre le code de ses ancêtres humains."
+      - "Le futur est inconnu, mais une chose est sûre : quelqu'un a encore écrit un wrapper autour d'une API et l'a appelé une 'plateforme'."
