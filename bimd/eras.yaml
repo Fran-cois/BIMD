@@ -1,5 +1,9 @@
-# Model release dates sourced from Epoch AI — Notable AI Models
-# https://epoch.ai/data/notable-ai-models
+# Model release dates sourced from:
+#   - Epoch AI — Notable AI Models (https://epoch.ai/data/notable-ai-models)
+#   - OpenAI API Changelog (https://developers.openai.com/api/docs/changelog)
+#   - Anthropic Newsroom (https://www.anthropic.com/news)
+#   - Google Gemini API Docs (https://ai.google.dev/gemini-api/docs/models)
+#   - Meta AI Blog (https://ai.meta.com/blog/)
 eras:
   - id: pre_transformer
     name:
@@ -302,24 +306,48 @@ eras:
     start_date: "2025-02-24"
     end_date: "2026-12-31"
     top_models:
+      - name: "o3-mini"
+        released: "2025-01-31"
+        org: "OpenAI"
       - name: "Claude 3.7 Sonnet"
         released: "2025-02-24"
         org: "Anthropic"
       - name: "GPT-4.5"
         released: "2025-02-27"
         org: "OpenAI"
-      - name: "o3 / o4-mini"
-        released: "2025-01-31"
-        org: "OpenAI"
       - name: "Gemini 2.5 Pro"
         released: "2025-03-25"
         org: "Google DeepMind"
+      - name: "Llama 4 Scout/Maverick"
+        released: "2025-04-05"
+        org: "Meta AI"
+      - name: "o3 / o4-mini"
+        released: "2025-04-16"
+        org: "OpenAI"
       - name: "Claude 4 Opus/Sonnet"
         released: "2025-05-22"
         org: "Anthropic"
-      - name: "Llama 4 Scout"
-        released: "2025-04-05"
-        org: "Meta AI"
+      - name: "GPT-5"
+        released: "2025-08-07"
+        org: "OpenAI"
+      - name: "Claude Haiku 4.5"
+        released: "2025-10-01"
+        org: "Anthropic"
+      - name: "GPT-5.1"
+        released: "2025-11-13"
+        org: "OpenAI"
+      - name: "GPT-5.2"
+        released: "2025-12-11"
+        org: "OpenAI"
+      - name: "GPT-5.4"
+        released: "2026-03-05"
+        org: "OpenAI"
+      - name: "Claude Opus 4.7"
+        released: "2026-04-16"
+        org: "Anthropic"
+      - name: "GPT-5.5"
+        released: "2026-04-24"
+        org: "OpenAI"
     context_window: "200k - 1M+ tokens"
     badge_label: "Agent Orchestrator"
     badge_color: "9cf"
