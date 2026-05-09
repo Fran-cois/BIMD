@@ -1,0 +1,172 @@
+metadata:
+  title: "BackInMyDay — CLI Demo"
+  version: "2.0.0"
+
+scenarios:
+  - name: "bimd demo"
+    terminal:
+      shell: "zsh"
+      prompt: "~/BIMD $ "
+      theme: "dracula"
+      font_family: "'SF Mono', 'Fira Code', monospace"
+      font_size: 17
+      line_height: 1.5
+      cols: 82
+      rows: 30
+      title: "Terminal -- BackInMyDay"
+      window_chrome: true
+      typing_speed: 16
+      output_delay: 0.3
+    background:
+      os: "macos"
+      theme: "dark"
+      wallpaper_color: "#1a1a2e"
+      window_title: "Terminal"
+      show_dock: true
+      show_menu_bar: true
+      apps:
+        - name: "Finder"
+        - name: "Terminal"
+        - name: "VS Code"
+        - name: "Safari"
+        - name: "Chrome"
+    viewport:
+      width: 1920
+      height: 1080
+    steps:
+      # --- Install ---
+      - action: terminal_run
+        command: "pip install backinmyday"
+        output:
+          - "Collecting backinmyday"
+          - "  Downloading backinmyday-0.1.0-py3-none-any.whl (12 kB)"
+          - "Installing collected packages: backinmyday"
+          - "Successfully installed backinmyday-0.1.0"
+        wait: 2.0
+
+      - action: terminal_clear
+        wait: 0.5
+
+      # --- Scan current repo ---
+      - action: terminal_run
+        command: "bimd scan ."
+        output:
+          - ""
+          - " ____             _    ___       __  __       ____"
+          - "| __ )  __ _  ___| | _|_ _|_ __ |  \\/  |_   _|  _ \\  __ _ _   _"
+          - "|  _ \\ / _` |/ __| |/ /| || '_ \\| |\\/| | | | | | | |/ _` | | | |"
+          - "| |_) | (_| | (__|   < | || | | | |  | | |_| | |_| | (_| | |_| |"
+          - "|____/ \\__,_|\\___|_|\\_\\___|_| |_|_|  |_|\\__, |____/ \\__,_|\\__, |"
+          - "                                         |___/             |___/"
+          - ""
+          - "  Date analysed  : 2026-05-09"
+          - "  Era detected   : The Agentic Era (agent_era)"
+          - ""
+          - "          Models available at the time"
+          - "+------------------------+------------+-----------------+"
+          - "| Model                  | Released   | Organization    |"
+          - "+------------------------+------------+-----------------+"
+          - "| o3-mini                | 2025-01-31 | OpenAI          |"
+          - "| Claude 3.7 Sonnet      | 2025-02-24 | Anthropic       |"
+          - "| GPT-4.5                | 2025-02-27 | OpenAI          |"
+          - "| Gemini 2.5 Pro         | 2025-03-25 | Google DeepMind |"
+          - "| Llama 4 Scout/Maverick | 2025-04-05 | Meta AI         |"
+          - "| o3 / o4-mini           | 2025-04-16 | OpenAI          |"
+          - "| Claude 4 Opus/Sonnet   | 2025-05-22 | Anthropic       |"
+          - "| GPT-5                  | 2025-08-07 | OpenAI          |"
+          - "| Claude Haiku 4.5       | 2025-10-01 | Anthropic       |"
+          - "| GPT-5.1                | 2025-11-13 | OpenAI          |"
+          - "| GPT-5.2                | 2025-12-11 | OpenAI          |"
+          - "| GPT-5.4                | 2026-03-05 | OpenAI          |"
+          - "| Claude Opus 4.7        | 2026-04-16 | Anthropic       |"
+          - "| GPT-5.5                | 2026-04-24 | OpenAI          |"
+          - "+------------------------+------------+-----------------+"
+          - ""
+          - "  Context window : 200k - 1M+ tokens"
+          - "  Period : 2025-02-24 -> 2026-12-31"
+          - ""
+          - "+------------------------------------------------------------+"
+          - "| The Prompt Boomer grumbles:                                 |"
+          - "| Claude codes, Copilot codes, Cursor codes... soon          |"
+          - "| developers won't code anymore. Oh wait.                    |"
+          - "+------------------------------------------------------------+"
+        wait: 3.5
+
+      # --- Zoom on the model table ---
+      - action: terminal_zoom
+        zoom_level: 1.5
+        zoom_duration: 0.8
+        wait: 2.5
+
+      - action: terminal_zoom
+        zoom_level: 1.0
+        zoom_duration: 0.6
+        wait: 1.0
+
+      - action: terminal_clear
+        wait: 0.5
+
+      # --- Travel back to the BERT era ---
+      - action: terminal_run
+        command: "bimd era 2019-06-15"
+        output:
+          - ""
+          - " ____             _    ___       __  __       ____"
+          - "| __ )  __ _  ___| | _|_ _|_ __ |  \\/  |_   _|  _ \\  __ _ _   _"
+          - "|  _ \\ / _` |/ __| |/ /| || '_ \\| |\\/| | | | | | | |/ _` | | | |"
+          - "| |_) | (_| | (__|   < | || | | | |  | | |_| | |_| | (_| | |_| |"
+          - "|____/ \\__,_|\\___|_|\\_\\___|_| |_|_|  |_|\\__, |____/ \\__,_|\\__, |"
+          - "                                         |___/             |___/"
+          - ""
+          - "  Date analysed  : 2019-06-15"
+          - "  Era detected   : The BERT Age (bert_era)"
+          - ""
+          - "          Models available at the time"
+          - "+---------+------------+--------------------+"
+          - "| Model   | Released   | Organization       |"
+          - "+---------+------------+--------------------+"
+          - "| BERT    | 2018-10-11 | Google             |"
+          - "| GPT-2   | 2019-02-14 | OpenAI             |"
+          - "| XLNet   | 2019-06-01 | CMU / Google Brain |"
+          - "| RoBERTa | 2019-07-01 | Facebook           |"
+          - "+---------+------------+--------------------+"
+          - ""
+          - "  Context window : 512 - 1024 tokens"
+          - "  Period : 2018-10-11 -> 2020-06-10"
+          - ""
+          - "+------------------------------------------------------------+"
+          - "| The Prompt Boomer grumbles:                                 |"
+          - "| GPT-2 was 'too dangerous to release'. Today you could run  |"
+          - "| it on a toaster.                                           |"
+          - "+------------------------------------------------------------+"
+        wait: 3.5
+
+      - action: terminal_clear
+        wait: 0.5
+
+      # --- Generate a badge ---
+      - action: terminal_run
+        command: "bimd badge ."
+        output:
+          - "+------------------------------------------------------------+"
+          - "| Badge Markdown                                             |"
+          - "| ![BackInMyDay Era](https://img.shields.io/badge/           |"
+          - "|   Era-Agent%20Orchestrator-9cf)                            |"
+          - "+------------------------------------------------------------+"
+          - ""
+          - "  Copy the line above into your README.md"
+        wait: 3.0
+
+      # --- Final zoom on badge ---
+      - action: terminal_zoom
+        zoom_level: 1.4
+        zoom_duration: 0.8
+        wait: 2.5
+
+      - action: terminal_zoom
+        zoom_level: 1.0
+        zoom_duration: 0.6
+        wait: 1.5
+
+pipeline:
+  - edit_video: {}
