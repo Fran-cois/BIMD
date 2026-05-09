@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>BackInMyDay · Archéologie logicielle de l'ère IA 👴</title>
-  <meta name="description" content="bimd — un outil CLI qui analyse votre dépôt Git pour révéler l'état du paysage LLM au moment où votre code a été écrit. Avec un commentaire de vieux dev grincheux." />
+  <title>BackInMyDay · AI-era software archaeology 👴</title>
+  <meta name="description" content="bimd — a CLI tool that analyzes your Git repo to reveal the LLM landscape when your code was written. With grumpy boomer-dev commentary." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=VT323&display=swap" rel="stylesheet" />
@@ -13,6 +13,13 @@
 <body>
   <div class="scanlines" aria-hidden="true"></div>
   <div class="crt" aria-hidden="true"></div>
+
+  <!-- ══════════════ LANG SWITCHER ══════════════ -->
+  <nav class="lang-switcher" aria-label="Language">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <span class="lang-sep">|</span>
+    <button class="lang-btn" data-lang="fr">FR</button>
+  </nav>
 
   <header class="hero">
     <div class="container">
@@ -25,12 +32,17 @@
                                          |___/             |___/
       </pre>
       <h1 class="tagline">
-        <span class="prompt">$</span> Archéologie logicielle de l'<span class="accent">ère IA</span> 👴
+        <span class="prompt">$</span>
+        <span data-i18n="hero_title_en"> AI-era <span class="accent">software archaeology</span> 👴</span>
+        <span data-i18n="hero_title_fr" hidden> Archéologie logicielle de l'<span class="accent">ère IA</span> 👴</span>
       </h1>
       <p class="lede">
-        <code>bimd</code> analyse votre dépôt Git, identifie l'<strong>ère LLM</strong>
+        <span data-i18n="hero_lede_en"><code>bimd</code> scans your Git repo, finds the <strong>AI era</strong>
+        of your first commit, and delivers a grumpy boomer-dev comment to remind you
+        how hard things were "back in my day."</span>
+        <span data-i18n="hero_lede_fr" hidden><code>bimd</code> analyse votre dépôt Git, identifie l'<strong>ère LLM</strong>
         de votre premier commit, et fait râler un vieux dev de l'IA pour vous
-        rappeler à quel point la vie était dure « back in my day ».
+        rappeler à quel point la vie était dure « back in my day ».</span>
       </p>
       <div class="badges">
         <a href="https://pypi.org/project/backinmyday/"><img src="https://img.shields.io/pypi/v/backinmyday?color=8be9fd&style=for-the-badge" alt="PyPI" /></a>
@@ -38,8 +50,14 @@
         <img src="https://img.shields.io/badge/Era-Time%20Traveler-black?style=for-the-badge" alt="Era badge" />
       </div>
       <div class="cta">
-        <a href="#install" class="btn primary">▶ Installer</a>
-        <a href="#demo" class="btn">🎬 Voir la démo</a>
+        <a href="#install" class="btn primary">
+          <span data-i18n="cta_install_en">▶ Install</span>
+          <span data-i18n="cta_install_fr" hidden>▶ Installer</span>
+        </a>
+        <a href="#demo" class="btn">
+          <span data-i18n="cta_demo_en">🎬 Watch demo</span>
+          <span data-i18n="cta_demo_fr" hidden>🎬 Voir la démo</span>
+        </a>
         <a href="https://github.com/Fran-cois/BIMD" class="btn">★ GitHub</a>
       </div>
     </div>
@@ -49,12 +67,15 @@
     <!-- ══════════════ INSTALL ══════════════ -->
     <section id="install" class="section">
       <div class="container">
-        <h2>📦 Installation</h2>
+        <h2>
+          <span data-i18n="install_title_en">📦 Installation</span>
+          <span data-i18n="install_title_fr" hidden>📦 Installation</span>
+        </h2>
         <div class="terminal" data-title="zsh">
-          <pre><span class="muted"># Installation depuis PyPI</span>
+          <pre><span class="muted" data-i18n="install_comment_en"># Install from PyPI</span><span class="muted" data-i18n="install_comment_fr" hidden># Installation depuis PyPI</span>
 <span class="prompt">$</span> <span class="cmd">pip install backinmyday</span>
 
-<span class="muted"># Vérification</span>
+<span class="muted" data-i18n="install_verify_en"># Verify</span><span class="muted" data-i18n="install_verify_fr" hidden># Vérification</span>
 <span class="prompt">$</span> <span class="cmd">bimd --help</span></pre>
         </div>
       </div>
@@ -63,21 +84,29 @@
     <!-- ══════════════ DEMO VIDEO ══════════════ -->
     <section id="demo" class="section dark">
       <div class="container">
-        <h2>🎬 Démo en vidéo</h2>
+        <h2>
+          <span data-i18n="demo_title_en">🎬 Video demo</span>
+          <span data-i18n="demo_title_fr" hidden>🎬 Démo en vidéo</span>
+        </h2>
         <p class="lede">
-          Vidéo générée automatiquement par
+          <span data-i18n="demo_lede_en">Video automatically generated by
           <a href="https://pypi.org/project/demodsl/" class="link">demodsl</a> —
-          un DSL pour automatiser des démos produit à partir d'un YAML.
+          a DSL for automating product demos from a YAML file.</span>
+          <span data-i18n="demo_lede_fr" hidden>Vidéo générée automatiquement par
+          <a href="https://pypi.org/project/demodsl/" class="link">demodsl</a> —
+          un DSL pour automatiser des démos produit à partir d'un YAML.</span>
         </p>
         <div class="video-frame">
           <video controls preload="metadata">
             <source src="assets/demo.mp4" type="video/mp4" />
-            Votre navigateur ne supporte pas la balise vidéo.
-            <a href="assets/demo.mp4">Télécharger la vidéo</a>.
+            <span data-i18n="video_fallback_en">Your browser does not support the video tag.
+            <a href="assets/demo.mp4">Download the video</a>.</span>
+            <span data-i18n="video_fallback_fr" hidden>Votre navigateur ne supporte pas la balise vidéo.
+            <a href="assets/demo.mp4">Télécharger la vidéo</a>.</span>
           </video>
         </div>
         <p class="caption">
-          ▸ Pour la regénérer : <code>demodsl run docs/demo.yaml</code>
+          ▸ <span data-i18n="demo_regen_en">To regenerate:</span><span data-i18n="demo_regen_fr" hidden>Pour la regénérer :</span> <code>demodsl run examples/demo_terminal.yaml</code>
         </p>
       </div>
     </section>
@@ -85,32 +114,43 @@
     <!-- ══════════════ COMMANDS ══════════════ -->
     <section id="commands" class="section">
       <div class="container">
-        <h2>⚙️ Les 3 commandes</h2>
+        <h2>
+          <span data-i18n="commands_title_en">⚙️ The 3 commands</span>
+          <span data-i18n="commands_title_fr" hidden>⚙️ Les 3 commandes</span>
+        </h2>
 
         <article class="card">
           <h3><code>bimd scan [PATH]</code></h3>
-          <p>Analyse le dépôt Git, trouve la date du <em>premier commit</em>,
-          et affiche l'ère IA correspondante avec un commentaire sarcastique.</p>
+          <p>
+            <span data-i18n="scan_desc_en">Scans the Git repo, finds the <em>first commit</em> date,
+            and displays the matching AI era with a sarcastic comment.</span>
+            <span data-i18n="scan_desc_fr" hidden>Analyse le dépôt Git, trouve la date du <em>premier commit</em>,
+            et affiche l'ère IA correspondante avec un commentaire sarcastique.</span>
+          </p>
           <div class="terminal" data-title="bimd scan">
 <pre><span class="prompt">$</span> <span class="cmd">bimd scan .</span>
-  📅  Date analysée : <span class="warn">2023-04-12</span>
-  🏷️   Ère détectée  : <span class="accent">La Révolution GPT-4</span>
-  🤖  Modèles        : GPT-4, Claude 1, Llama 1, PaLM 2
-  📏  Contexte       : <span class="ok">8k - 32k tokens</span>
+  📅  <span data-i18n="scan_date_en">Date analysed</span><span data-i18n="scan_date_fr" hidden>Date analysée</span> : <span class="warn">2023-04-12</span>
+  🏷️   <span data-i18n="scan_era_en">Era detected</span><span data-i18n="scan_era_fr" hidden>Ère détectée</span>  : <span class="accent">The GPT-4 Revolution</span>
+  🤖  <span data-i18n="scan_models_en">Models</span><span data-i18n="scan_models_fr" hidden>Modèles</span>        : GPT-4, Claude 1, Llama 1, PaLM 2
+  📏  <span data-i18n="scan_ctx_en">Context</span><span data-i18n="scan_ctx_fr" hidden>Contexte</span>       : <span class="ok">8k - 32k tokens</span>
 
-  👴  <span class="quip">« On passait nos journées à écrire des prompts de 4 pages
+  👴  <span class="quip" data-i18n="scan_quip_en">"We spent our days writing 4-page prompts
+        to force the model to spit out valid JSON."</span><span class="quip" data-i18n="scan_quip_fr" hidden>« On passait nos journées à écrire des prompts de 4 pages
         pour forcer le modèle à cracher du JSON valide. »</span></pre>
           </div>
         </article>
 
         <article class="card">
           <h3><code>bimd era &lt;DATE | COMMIT&gt;</code></h3>
-          <p>Recherche ponctuelle pour une date arbitraire ou un hash de commit.</p>
+          <p>
+            <span data-i18n="era_desc_en">Point lookup for any date or commit hash.</span>
+            <span data-i18n="era_desc_fr" hidden>Recherche ponctuelle pour une date arbitraire ou un hash de commit.</span>
+          </p>
           <div class="terminal" data-title="bimd era">
 <pre><span class="prompt">$</span> <span class="cmd">bimd era 2020-07-01</span>
-  🏷️   Ère détectée  : <span class="accent">L'Aube du Prompt</span>
-  🤖  Modèles        : GPT-3 (davinci), Codex, PaLM, DALL-E
-  📏  Contexte       : 2048 - 4096 tokens
+  🏷️   <span data-i18n="era_detected_en">Era detected</span><span data-i18n="era_detected_fr" hidden>Ère détectée</span>  : <span class="accent">The Dawn of Prompting</span>
+  🤖  <span data-i18n="era_models_en">Models</span><span data-i18n="era_models_fr" hidden>Modèles</span>        : GPT-3 (davinci), Codex, PaLM, DALL-E
+  📏  <span data-i18n="era_ctx_en">Context</span><span data-i18n="era_ctx_fr" hidden>Contexte</span>       : 2048 - 4096 tokens
 
 <span class="prompt">$</span> <span class="cmd">bimd era a1b2c3d --path .</span></pre>
           </div>
@@ -118,13 +158,19 @@
 
         <article class="card">
           <h3><code>bimd badge</code></h3>
-          <p>Génère un badge Markdown <a href="https://shields.io" class="link">Shields.io</a>
-          à coller dans votre README.</p>
+          <p>
+            <span data-i18n="badge_desc_en">Generates a <a href="https://shields.io" class="link">Shields.io</a>
+            Markdown badge to paste in your README.</span>
+            <span data-i18n="badge_desc_fr" hidden>Génère un badge Markdown <a href="https://shields.io" class="link">Shields.io</a>
+            à coller dans votre README.</span>
+          </p>
           <div class="terminal" data-title="bimd badge">
 <pre><span class="prompt">$</span> <span class="cmd">bimd badge .</span>
   ![BackInMyDay Era](https://img.shields.io/badge/Era-GPT--4%20Early%20Adopter-blue)</pre>
           </div>
-          <p style="margin-top:.8rem">Rendu :
+          <p style="margin-top:.8rem">
+            <span data-i18n="badge_render_en">Rendered:</span>
+            <span data-i18n="badge_render_fr" hidden>Rendu :</span>
             <img src="https://img.shields.io/badge/Era-GPT--4%20Early%20Adopter-blue" alt="GPT-4 Early Adopter" />
           </p>
         </article>
@@ -134,21 +180,49 @@
     <!-- ══════════════ ERAS TIMELINE ══════════════ -->
     <section id="eras" class="section dark">
       <div class="container">
-        <h2>🕰️ La frise des ères IA</h2>
-        <p class="lede">11 ères couvertes, de la pré-histoire des Transformers à l'âge des agents.</p>
+        <h2>
+          <span data-i18n="timeline_title_en">🕰️ AI Eras Timeline</span>
+          <span data-i18n="timeline_title_fr" hidden>🕰️ La frise des ères IA</span>
+        </h2>
+        <p class="lede">
+          <span data-i18n="timeline_lede_en">11 eras covered, from pre-Transformer prehistory to the age of agents.</span>
+          <span data-i18n="timeline_lede_fr" hidden>11 ères couvertes, de la pré-histoire des Transformers à l'âge des agents.</span>
+        </p>
 
         <ol class="timeline">
-          <li><span class="year">~2017</span><strong>L'Ère Silencieuse</strong><em>RegEx, TF-IDF, LSTM</em></li>
-          <li><span class="year">2017</span><strong>Big Bang Transformer</strong><em>« Attention Is All You Need »</em></li>
-          <li><span class="year">2018</span><strong>L'Âge de BERT</strong><em>BERT, GPT-2, fine-tuning manuel</em></li>
-          <li><span class="year">2020</span><strong>L'Aube du Prompt</strong><em>GPT-3, davinci, prompts à $$$</em></li>
-          <li><span class="year">2022</span><strong>Le Boom ChatGPT</strong><em>4k tokens, chunking, wrappers</em></li>
-          <li><span class="year">2023</span><strong>Révolution GPT-4</strong><em>JSON wars, LangChain hell</em></li>
-          <li><span class="year">2023</span><strong>Vague Open Source</strong><em>Mixtral, Llama 2, 128k</em></li>
-          <li><span class="year">2024</span><strong>Multimodal</strong><em>Claude 3, GPT-4o, 1M tokens</em></li>
-          <li><span class="year">2024</span><strong>Âge du Raisonnement</strong><em>o1, DeepSeek, CoT</em></li>
-          <li><span class="year">2025</span><strong>Ère Agentique</strong><em>MCP, Claude 4, vibe-coding</em></li>
-          <li><span class="year">2026+</span><strong>Terra Incognita</strong><em>???</em></li>
+          <li><span class="year">~2017</span>
+            <strong data-i18n="era1_en">The Silent Era</strong><strong data-i18n="era1_fr" hidden>L'Ère Silencieuse</strong>
+            <em>RegEx, TF-IDF, LSTM</em></li>
+          <li><span class="year">2017</span>
+            <strong data-i18n="era2_en">Transformer Big Bang</strong><strong data-i18n="era2_fr" hidden>Big Bang Transformer</strong>
+            <em>« Attention Is All You Need »</em></li>
+          <li><span class="year">2018</span>
+            <strong data-i18n="era3_en">The BERT Age</strong><strong data-i18n="era3_fr" hidden>L'Âge de BERT</strong>
+            <em>BERT, GPT-2, fine-tuning</em></li>
+          <li><span class="year">2020</span>
+            <strong data-i18n="era4_en">The Dawn of Prompting</strong><strong data-i18n="era4_fr" hidden>L'Aube du Prompt</strong>
+            <em>GPT-3, davinci, $$$ prompts</em></li>
+          <li><span class="year">2022</span>
+            <strong data-i18n="era5_en">The ChatGPT Boom</strong><strong data-i18n="era5_fr" hidden>Le Boom ChatGPT</strong>
+            <em>4k tokens, chunking, wrappers</em></li>
+          <li><span class="year">2023</span>
+            <strong data-i18n="era6_en">GPT-4 Revolution</strong><strong data-i18n="era6_fr" hidden>Révolution GPT-4</strong>
+            <em>JSON wars, LangChain hell</em></li>
+          <li><span class="year">2023</span>
+            <strong data-i18n="era7_en">Open Source Wave</strong><strong data-i18n="era7_fr" hidden>Vague Open Source</strong>
+            <em>Mixtral, Llama 2, 128k</em></li>
+          <li><span class="year">2024</span>
+            <strong data-i18n="era8_en">Multimodal</strong><strong data-i18n="era8_fr" hidden>Multimodal</strong>
+            <em>Claude 3, GPT-4o, 1M tokens</em></li>
+          <li><span class="year">2024</span>
+            <strong data-i18n="era9_en">Reasoning Age</strong><strong data-i18n="era9_fr" hidden>Âge du Raisonnement</strong>
+            <em>o1, DeepSeek, CoT</em></li>
+          <li><span class="year">2025</span>
+            <strong data-i18n="era10_en">Agentic Era</strong><strong data-i18n="era10_fr" hidden>Ère Agentique</strong>
+            <em>MCP, Claude 4, vibe-coding</em></li>
+          <li><span class="year">2026+</span>
+            <strong data-i18n="era11_en">Terra Incognita</strong><strong data-i18n="era11_fr" hidden>Terra Incognita</strong>
+            <em>???</em></li>
         </ol>
       </div>
     </section>
@@ -156,10 +230,18 @@
     <!-- ══════════════ CONTRIBUTE ══════════════ -->
     <section id="contribute" class="section">
       <div class="container">
-        <h2>🤝 Contribuer</h2>
-        <p>La base de données vit dans
+        <h2>
+          <span data-i18n="contrib_title_en">🤝 Contributing</span>
+          <span data-i18n="contrib_title_fr" hidden>🤝 Contribuer</span>
+        </h2>
+        <p>
+          <span data-i18n="contrib_text_en">The era database lives in
           <a class="link" href="https://github.com/Fran-cois/BIMD/blob/main/bimd/eras.yaml"><code>bimd/eras.yaml</code></a>.
-          Ouvrez une PR pour ajouter une ère, un modèle ou — surtout — un nouveau commentaire de vieux con.</p>
+          Open a PR to add an era, a model, or — most importantly — a new grumpy boomer comment.</span>
+          <span data-i18n="contrib_text_fr" hidden>La base de données vit dans
+          <a class="link" href="https://github.com/Fran-cois/BIMD/blob/main/bimd/eras.yaml"><code>bimd/eras.yaml</code></a>.
+          Ouvrez une PR pour ajouter une ère, un modèle ou — surtout — un nouveau commentaire de vieux con.</span>
+        </p>
       </div>
     </section>
   </main>
@@ -169,9 +251,51 @@
       <p>
         Made with <span class="accent">☕</span> &amp; <span class="accent">😤</span> ·
         <a class="link" href="https://github.com/Fran-cois/BIMD">github.com/Fran-cois/BIMD</a> ·
-        Vidéo par <a class="link" href="https://pypi.org/project/demodsl/">demodsl</a>
+        <span data-i18n="footer_video_en">Video by</span><span data-i18n="footer_video_fr" hidden>Vidéo par</span>
+        <a class="link" href="https://pypi.org/project/demodsl/">demodsl</a>
       </p>
     </div>
   </footer>
+
+  <script>
+  (function() {
+    const STORAGE_KEY = 'bimd-lang';
+    // Detect initial language: saved pref > browser > en
+    function detectLang() {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (saved === 'fr' || saved === 'en') return saved;
+      const nav = (navigator.language || '').toLowerCase();
+      return nav.startsWith('fr') ? 'fr' : 'en';
+    }
+
+    function setLang(lang) {
+      localStorage.setItem(STORAGE_KEY, lang);
+      document.documentElement.lang = lang;
+      // Toggle all [data-i18n] elements
+      document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var key = el.getAttribute('data-i18n');
+        if (key.endsWith('_' + lang)) {
+          el.hidden = false;
+        } else {
+          el.hidden = true;
+        }
+      });
+      // Update active button
+      document.querySelectorAll('.lang-btn').forEach(function(btn) {
+        btn.classList.toggle('active', btn.getAttribute('data-lang') === lang);
+      });
+    }
+
+    // Bind buttons
+    document.querySelectorAll('.lang-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        setLang(btn.getAttribute('data-lang'));
+      });
+    });
+
+    // Init
+    setLang(detectLang());
+  })();
+  </script>
 </body>
 </html>
